@@ -26,8 +26,8 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link href={`/huzaketa`} className={current('/huzaketa')}>
-              ふざけた話
+            <Link href={`/neta`} className={current('/neta')}>
+              ネタ話
             </Link>
           </li>
         </ul>
