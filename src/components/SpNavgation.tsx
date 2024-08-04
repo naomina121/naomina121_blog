@@ -31,7 +31,7 @@ const SpNavgation = () => {
               <Link href={`/majime`}>まじめな話</Link>
             </li>
             <li>
-              <Link href={`/huzaketa`}>ふざけた話</Link>
+              <Link href={`/neta`}>ネタ話</Link>
             </li>
           </ul>
         </nav>
