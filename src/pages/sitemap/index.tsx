@@ -71,10 +71,10 @@ const sitemap = () => {
                   />
                 </svg>
                 <Link
-                  href='/huzaketa'
+                  href='/neta'
                   className='text-gray-800 font-bold underline hover:no-underline'
                 >
-                  ふざけた話
+                  ネタ話
                 </Link>
               </li>
             </ul>
