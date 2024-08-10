@@ -33,6 +33,9 @@ const SpNavgation = () => {
             <li>
               <Link href={`/neta`}>ネタ話</Link>
             </li>
+            <li>
+              <Link href={`https://mint-note.net`} target='blank'>MintNote -心のケアノート-</Link>
+            </li>
           </ul>
         </nav>
         <p className='hm-title'>その他</p>

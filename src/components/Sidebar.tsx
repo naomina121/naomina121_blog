@@ -30,6 +30,11 @@ const Sidebar = () => {
               ネタ話
             </Link>
           </li>
+          <li>
+            <Link href={`https://mint-note.net`} target='blank'>
+              MintNote <br/> -心のケアノート-
+            </Link>
+          </li>
         </ul>
       </nav>
     </aside>
