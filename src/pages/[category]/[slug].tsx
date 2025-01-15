@@ -167,10 +167,10 @@ const Article: FC<ArticleProps> = ({ page, blocks }) => {
         <Seo
           pageTitle={postTitle(page)}
           pageDescription={description(page)}
-          pageImg={`${siteConfig.siteUrl}api/image/${postCategory(page)}/${slug(page)}?slug=${slug(page)}&cat=${postCategory(page)}`}
+          pageImg={url}
           pageImgWidth={1152}
           pageImgHeight={622}
-          pagePath={`${siteConfig.siteUrl}/api/image/${postCategory(page)}/${slug(page)}?slug=${slug}&cat=${postCategory(page)}`}
+          pagePath={`${siteConfig.siteUrl}${postCategory(page)}/${slug(page)}`}
         />
         <Breadcrumb
           breadList={`${postCategory(page)}/${slug(page)}`}
