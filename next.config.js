@@ -5,9 +5,9 @@ const nextConfig = {
   images: {
     domains: ['www.notion.so', 's3.us-west-2.amazonaws.com', 'mint-note.com', 'localhost'],
   },
-  experimental: {
-    appDir: false,
-  },
+  // experimental: {
+  //   appDir: false,
+  // },
 }
 
 module.exports = nextConfig

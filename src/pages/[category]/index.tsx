@@ -59,7 +59,6 @@ const Category: NextPage<CategoryProps> = ({ pages, category, numberOfPage, page
           pageImgHeight={800}
         />
         <h1 className='font-black text-2xl mt-6 ml-4 mb-4'>{jscategory(pages[0])}</h1>
-
         <Breadcrumb
           breadList={`${postCategory(pages[0])}`}
           breadListJs={`${jscategory(pages[0])}`}

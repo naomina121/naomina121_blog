@@ -72,6 +72,15 @@ const Home: FC<FrontProps> = ({ pages, newsPages }) => {
             )}
           </ul>
         </div>
+        <div className='my-6'>
+          <Image
+            src='/blog2.jpg'
+            alt='ナオのブログ'
+            width={1200}
+            height={800}
+            className='object-cover rounded-lg'
+          />
+        </div>
         <div className='my-6 flex justify-between lg:flex-col'>
           <div className='p-0 bg-white max-w-full w-full lg:mb-6'>
             <ul className='flex flex-wrap w-full justify-between'>

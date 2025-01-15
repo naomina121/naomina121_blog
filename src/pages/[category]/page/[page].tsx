@@ -50,6 +50,15 @@ const CategoryPage: NextPage<CategoryProps> = ({ pages, category, numberOfPage, 
     <Layout>
       <>
         <h1 className='font-black text-2xl mt-6 mb-4'>{jscategory(pages[0])}</h1>
+        <div className='mb-6'>
+          <Image
+            src='/blog2.jpg'
+            alt='ナオのブログ'
+            width={1200}
+            height={800}
+            className='object-cover rounded-lg'
+          />
+        </div>
         <Breadcrumb
           breadList={`${postCategory(pages[0])}`}
           breadListJs={`${jscategory(pages[0])}`}
