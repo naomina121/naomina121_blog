@@ -42,7 +42,7 @@ const Seo: FC<MetaData> = ({
       <meta property='og:image' content={imgUrl} />
       <meta property='og:image:width' content={String(imgWidth)} />
       <meta property='og:image:height' content={String(imgHeight)} />
-      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:card' content='summary_large_image' />
       <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link rel='canonical' href={url} />
     </Head>
