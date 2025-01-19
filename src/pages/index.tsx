@@ -86,7 +86,7 @@ const Home: FC<FrontProps> = ({ pages, newsPages }) => {
             <ul className='flex flex-wrap w-full justify-between'>
               {pages.map(
                 (page, index) =>
-                  index < 6 && (
+                  index < 50 && (
                     <li
                       key={index}
                       className='w-[410px] rounded-lg shadow-sm p-4 border-gray-200 border-[1px] overflow-hidden text-ellipsis mb-4'
