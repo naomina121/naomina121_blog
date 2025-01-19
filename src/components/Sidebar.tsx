@@ -20,6 +20,11 @@ const Sidebar = () => {
       </h1>
       <nav className='mt-6'>
         <ul>
+        <li>
+            <Link href={`/for-first-time-users`} className={current('/for-first-time-users')}>
+              初めての方へ
+            </Link>
+          </li>
           <li>
             <Link href={`/majime`} className={current('/majime')}>
               まじめな話

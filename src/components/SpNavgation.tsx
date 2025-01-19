@@ -26,6 +26,9 @@ const SpNavgation = () => {
             <li>
               <Link href='/'>ホーム</Link>
             </li>
+            <li>
+              <Link href={`/for-first-time-users`}>初めての方へ</Link>
+            </li>
 
             <li>
               <Link href={`/majime`}>まじめな話</Link>
