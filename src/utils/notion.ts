@@ -8,7 +8,9 @@ export const notion = new Client({ auth: process.env.NOTION_KEY as string })
 
 const is_public = process.env.NOTION_PUBLIC as string
 
-// 全ての記事を取得
+// =====================
+// 1. 全ての記事を取得
+// =====================
 export const allFetchPages = async ({
   category,
   slug,
@@ -77,7 +79,7 @@ export const allFetchPages = async ({
   // 取得するデータベースのID（＝ページID）を定義する
   let cursor: string | undefined = undefined
   const databaseId = process.env.NOTION_DATABASE_ID as string
-  const data = []
+  const data: any[] = []
 
   while (true) {
     const { results, next_cursor, has_more }: any = await notion.databases.query({
@@ -93,41 +95,58 @@ export const allFetchPages = async ({
       ],
       start_cursor: cursor,
     })
+
     data.push(...results)
+
     // has_moreがfalseになったら終了
     if (!has_more) break
     cursor = next_cursor
   }
+
   return { results: data }
 }
 
-// ページIDからブロックを取得する関数を作成
+// ==========================================
+// 2. ページIDからブロック(階層構造)を取得
+// ==========================================
 export const fetchBlocksByPageId = async (pageId: string) => {
-  const data = []
+  const allBlocks: any[] = []
   let cursor: string | undefined = undefined
+
   while (true) {
-    const { results, next_cursor }: any = await notion.blocks.children.list({
+    const response: any = await notion.blocks.children.list({
       block_id: pageId,
       start_cursor: cursor,
     })
+    const { results, next_cursor, has_more } = response
 
-    // ブロックのhas_childrenがtrueの場合はhas_childrenのブロックを取得する
     for (const block of results) {
-      data.push(block)
+      // 再帰的に子ブロックを取得
       if (block.has_children) {
-        const { results: children }: any = await fetchBlocksByPageId(block.id)
-        data.push(...children)
+        // ここで再帰呼び出し
+        const childBlocks = await fetchBlocksByPageId(block.id)
+        // 「子ブロックの配列」を block.children に格納
+        block.children = childBlocks.results
+      } else {
+        // 子ブロックが無い場合も空配列として持たせる
+        block.children = []
       }
+
+      // 親階層へpush
+      allBlocks.push(block)
     }
 
-    // has_moreがfalseになったら終了
-    if (!next_cursor) break
+    if (!has_more) break
     cursor = next_cursor
   }
-  return { results: data }
+
+  // 最終的に { results: 階層構造を保ったブロック配列 } で返す
+  return { results: allBlocks }
 }
 
-// ページ番号に応じた記事取得
+// ================================
+// 3. ページ番号に応じた記事取得
+// ================================
 export const getPostsByPage = async ({
   pageNumber,
   allPosts,
@@ -140,7 +159,9 @@ export const getPostsByPage = async ({
   return allPosts.slice(start, end)
 }
 
-// ページ数を取得
+// =========================
+// 4. ページ数を取得
+// =========================
 export const getNumberOfPages = async (allPosts: any) => {
   return (
     Math.floor(allPosts.length / NUMBER_OF_POSTS_PER_PAGE) +

@@ -251,6 +251,12 @@ nav a.current {
   margin-left: 20px; /* ネストしたリストのインデント */
 }
 
+.content ul li > ul li{
+border:none;
+box-shadow:none;
+border-bottom:1px solid #b8b8b8;
+}
+
 /* アイコン付きリストのスタイル (オプション) */
 .content ul li::before {
   content: '\2022'; /* カスタムのマーカー (黒丸) */
