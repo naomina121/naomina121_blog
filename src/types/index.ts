@@ -101,6 +101,7 @@ export type RichTextType = {
 
 export type BlockType = {
   type: string
+  children?: BlockType[];
   heading_2?: {
     is_toggleable: boolean
     color: string
@@ -112,7 +113,7 @@ export type BlockType = {
     rich_text: RichTextType[]
   }
   image?: {
-    caption: []
+    caption: [] | RichTextType[] | null | any
     type: string
     file?: {
       url: string
