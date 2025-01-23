@@ -164,20 +164,52 @@ nav a.current {
   font-family: 'Zen Old Mincho', sans-serif;
 }
 
-.content h2 {
+/* .content h2 {
   @apply text-xl font-bold text-gray-900 py-5;
 }
 
 .content h3 {
   @apply text-lg font-bold text-gray-900 py-5;
+} */
+
+/* h2とh3の見出しデザイン */
+.content h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40;
+  border-bottom: 2px solid rgb(214 182 61); /* 下線を付ける */
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  background:none;
 }
+
+.content h3 {
+  font-family: 'Arial', sans-serif;
+  font-size:20px;
+}
+
+.content h3 {
+  border-bottom: solid 3px #c7ccdf;
+  position: relative;
+}
+
+.content h3:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #d6b63d;
+  bottom: -3px;
+  width: 20%;
+}
+
 
 .content p {
   @apply text-gray-900 py-4;
   line-height: 2;
 }
 
-.content ul {
+/* .content ul {
   @apply text-gray-900 py-5 list-disc list-inside  border border-emerald-300;
 }
 
@@ -187,7 +219,94 @@ nav a.current {
 
 .content li {
   @apply text-gray-900 py-2;
+} */
+
+
+/* 全体的に洗練されたデザインを意識 */
+.content ul, .content ol {
+  list-style: none; /* デフォルトの箇条書きマーカーを削除 */
+  padding:0px;
+  margin:30px 0;
+  background: none; /* 背景色を薄いグレーに */
+  overflow: hidden; /* 子要素の溢れを隠す */
 }
+
+.content ul li, .content ol li {
+  padding: 15px 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-left:0;
+  border-left:6px solid #7f89af;
+  box-shadow:0px 3px 3px #e5e2e2; /* 項目間の区切り線 */
+  background:#fff; /* 各項目の背景色を白に */
+  transition: background 0.3s ease, color 0.3s ease; /* ホバー時の滑らかな変化 */
+}
+
+.content ul li:last-child {
+  border-bottom: none;
+}
+
+.content ul li > ul {
+  margin-left: 20px; /* ネストしたリストのインデント */
+}
+
+/* アイコン付きリストのスタイル (オプション) */
+.content ul li::before {
+  content: '\2022'; /* カスタムのマーカー (黒丸) */
+  color: #d6b63d; /* マーカーの色 */
+  font-size: 18px;
+  margin-right: 10px;
+  display: inline-block; /* マーカーをテキストと同じ行に配置 */
+  vertical-align: middle;
+}
+
+/* メディアクエリでレスポンシブデザイン対応 */
+@media (max-width: 600px) {
+  .content   ul li {
+      font-size: 14px; /* 小さい画面では文字を少し小さく */
+      padding: 10px 15px;
+  }
+}
+
+/* OLタグのスタイル */
+.content ol {
+  list-style: none; /* デフォルトの番号付けを削除 */
+}
+
+.content ol li {
+  counter-increment: list-counter; /* 番号をカウント */
+  border-left:#0c7064 solid 6px;
+}
+
+.content ol li > ol {
+  margin-left: 20px; /* ネストしたリストのインデント */
+}
+
+.content ol li:last-child {
+  border-bottom: none; /* 最後の項目には区切り線を付けない */
+}
+
+
+/* 番号のスタイル */
+.content ol li::before {
+  content: counter(list-counter) '.'; /* 番号付きのマーカー */
+  color: #9e8323; /* 番号の色 */
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+  display: inline-block; /* 番号をテキストと同じ行に配置 */
+  vertical-align: middle;
+}
+
+/* メディアクエリでレスポンシブデザイン対応 */
+@media (max-width: 600px) {
+ .content ol li {
+      font-size: 14px; /* 小さい画面では文字を少し小さく */
+      padding: 10px 15px;
+  }
+}
+
 
 .content a {
   @apply text-sky-600 border-sky-600;
