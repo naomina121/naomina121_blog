@@ -223,7 +223,7 @@ nav a.current {
 
 
 /* 全体的に洗練されたデザインを意識 */
-.content ul, .content ol {
+.content ul, .content ol:not(div .main-toc-container ol) {
   list-style: none; /* デフォルトの箇条書きマーカーを削除 */
   padding:0px;
   margin:30px 0;
@@ -231,7 +231,7 @@ nav a.current {
   overflow: hidden; /* 子要素の溢れを隠す */
 }
 
-.content ul li, .content ol li {
+.content ul li, .content ol:not(.main-toc-container div ol) li {
   padding: 15px 20px;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -269,33 +269,34 @@ border-bottom:1px solid #b8b8b8;
 
 /* メディアクエリでレスポンシブデザイン対応 */
 @media (max-width: 600px) {
-  .content   ul li {
+  .content ul li {
       font-size: 14px; /* 小さい画面では文字を少し小さく */
       padding: 10px 15px;
   }
 }
 
 /* OLタグのスタイル */
-.content ol {
+
+.content ol:not(.main-toc-container  ol) {
   list-style: none; /* デフォルトの番号付けを削除 */
 }
 
-.content ol li {
+.content ol:not(.main-toc-container div ol) li {
   counter-increment: list-counter; /* 番号をカウント */
   border-left:#0c7064 solid 6px;
 }
 
-.content ol li > ol {
+.content ol:not(.main-toc-container div > ol) li > ol {
   margin-left: 20px; /* ネストしたリストのインデント */
 }
 
-.content ol li:last-child {
+.content ol:not(.main-toc-container div > ol) li:last-child {
   border-bottom: none; /* 最後の項目には区切り線を付けない */
 }
 
 
 /* 番号のスタイル */
-.content ol li::before {
+.content ol:not(div .main-toc-container div ol) li::before {
   content: counter(list-counter) '.'; /* 番号付きのマーカー */
   color: #9e8323; /* 番号の色 */
   font-weight: bold;
@@ -345,7 +346,9 @@ border-bottom:1px solid #b8b8b8;
 }
 
 .post .main-toc-container div > ol {
-  margin: 0;
+  margin:0;
+  all:unset;
+
 }
 
 .main-toc-container label {
