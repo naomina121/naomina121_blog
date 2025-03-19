@@ -1,5 +1,5 @@
 export const siteConfig = {
   siteTitle: 'Naomina121',
   description: 'ナオのブログサイトです。',
-  siteUrl: 'https://naomina121.net/',
+  siteUrl: 'https://blog.naomina121.com/',
 }

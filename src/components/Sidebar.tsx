@@ -35,6 +35,11 @@ const Sidebar = () => {
               ネタ話
             </Link>
           </li>
+          <li>
+            <Link href={`https://naomina121.com`} target='blank'>
+              ナオの備忘録
+            </Link>
+          </li>
         </ul>
       </nav>
     </aside>
