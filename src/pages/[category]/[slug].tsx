@@ -89,11 +89,11 @@ const Article: FC<ArticleProps> = ({ page, blocks }) => {
   const news = postCategory(page) === 'news-list'
 
   // 画像の有効期限が切れているかどうか
-  const isExpired = (blocks: Array<any>): boolean => {
+  function isExpired(blocks: Array<any>): boolean {
     const now = Date.now()
 
     const imageArray = blocks.filter(
-      (block) => block.type === 'image' && block.image.file.expiry_time,
+      (block) => block.type === 'image' && block.image.file.expiry_time
     )
 
     const newFindArry = imageArray.find((block) => {
