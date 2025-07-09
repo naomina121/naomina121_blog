@@ -2,6 +2,9 @@
 import { Client } from '@notionhq/client'
 import { ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints'
 import { NUMBER_OF_POSTS_PER_PAGE } from '@/constants/constants'
+// import type { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
+
+
 
 // Notionのシークレットトークンを取得する。
 export const notion = new Client({ auth: process.env.NOTION_KEY as string })
@@ -82,7 +85,7 @@ export const allFetchPages = async ({
   const data: any[] = []
 
   while (true) {
-    const { results, next_cursor, has_more }: any = await notion.databases.query({
+    const { results, next_cursor, has_more }: any  = await notion.databases.query({
       database_id: databaseId,
       filter: {
         and: and,
@@ -100,7 +103,7 @@ export const allFetchPages = async ({
 
     // has_moreがfalseになったら終了
     if (!has_more) break
-    cursor = next_cursor
+    cursor = next_cursor !== null ? next_cursor : undefined
   }
 
   return { results: data }
