@@ -49,6 +49,8 @@ const Seo: FC<MetaData> = ({
       <meta name="twitter:description" content={description} />
       <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link rel='canonical' href={url} />
+      <meta name="author" content="Naomina121" />
+      <meta name="robots" content="index, follow" />
     </Head>
   )
 }
