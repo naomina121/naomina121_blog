@@ -164,6 +164,43 @@ nav a.current {
   font-family: 'Zen Old Mincho', sans-serif;
 }
 
+/* sns */
+.sns-button {
+	max-width: calc(99% / 3);
+	width: 100%;
+}
+
+.sns-button > button {
+	padding-right: 15px !important;
+	border-radius: 4px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	color: #fff !important;
+	font-size: 16px !important;
+	justify-content: center;
+}
+
+.sns-button > button:hover {
+	opacity: 0.7;
+}
+
+.sns-button.x > button {
+	background: #000 !important;
+	box-shadow: 0 4px 0 #333;
+}
+
+.sns-button.facebook > button {
+	background: #0965fe !important;
+	box-shadow: 0 4px 0 #362eb2;
+}
+
+.sns-button.hatena > button {
+	background: #019bd9 !important;
+	box-shadow: 0 4px 0 #0277a5;
+}
+
+
 /* .content h2 {
   @apply text-xl font-bold text-gray-900 py-5;
 }

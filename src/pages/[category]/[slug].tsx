@@ -24,6 +24,8 @@ import {
 } from '@/utils/data'
 import dateToTime from '@/utils/date'
 import { allFetchPages, fetchBlocksByPageId } from '@/utils/notion'
+import Sns from '@/components/SNS'
+import SNS from '@/components/SNS'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as Params
@@ -86,7 +88,7 @@ const Article: FC<ArticleProps> = ({ page, blocks }) => {
 
   const lastUpDate = lastUpdatedAt(page)
 
-  const news = postCategory(page) === 'news-list'
+  const news = postCategory(page).name === 'news-list'
 
   // 画像の有効期限が切れているかどうか
   function isExpired(blocks: Array<any>): boolean {
@@ -229,6 +231,9 @@ const Article: FC<ArticleProps> = ({ page, blocks }) => {
               <h1 className='font-black text-2xl mt-6 mb-4'>{postTitle(page)}</h1>
               <MainToc />
               <Contents blocks={blocks} />
+              						<div className="my-10 xl:px-5 px-10 xl:mb-0">
+							<SNS page={page}/>
+						</div>
             </div>
           </div>
         </div>
