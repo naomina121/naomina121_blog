@@ -88,7 +88,7 @@ const Article: FC<ArticleProps> = ({ page, blocks }) => {
 
   const lastUpDate = lastUpdatedAt(page)
 
-  const news = postCategory(page).name === 'news-list'
+  const news = postCategory(page) === 'news-list'
 
   // 画像の有効期限が切れているかどうか
   function isExpired(blocks: Array<any>): boolean {
